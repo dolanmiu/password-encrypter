@@ -54,7 +54,7 @@ exports.encrypt = function(rawPassword, callback) {
   });
 };
 
-exports.checkMatch = function(password, salt, callback) {
+exports.checkMatch = function(password, encryptedPassword, salt, callback) {
   var defaultIterations = 10000,
     defaultKeyLength = 64,
     saltBuffer = new Buffer(salt, 'base64');
@@ -63,8 +63,8 @@ exports.checkMatch = function(password, salt, callback) {
     if (err) {
       return callback(err);
     }
-    
-    if (password === key.toString('base64')) {
+
+    if (encryptedPassword === key.toString('base64')) {
       callback(null, true);
     } else {
       callback(null, false);
