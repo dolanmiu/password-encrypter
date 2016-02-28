@@ -13,4 +13,16 @@ passwordEncrypter.encrypt("password123!", function (salt, hashedPassword) {
 });
 ```
 
-A Salt and Password hash will be created. Import this into MongoDB to create various users.
+There is no real way to decrypt the password, so the only way is to encrypt and check. To check if encrypted password is correct:
+
+```js
+var passwordEncrypter = require('password-encrypter');
+
+passwordEncrypter.checkMatch("password123!", "HASHED_PASSWORD", "MY_SALT", function (err, isMatch) {
+  if (isMatch) {
+    // success! the passwords are correct! Assign sessions/cookies to user and authenticate
+  } else {
+    // Boo! Wrong password.
+  }
+});
+```
