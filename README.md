@@ -26,4 +26,4 @@ passwordEncrypter.checkMatch("password123!", "HASHED_PASSWORD", "MY_SALT", funct
 ```
 ## License
 
-MIT: [http://rem.mit-license.org](http://rem.mit-license.org)
+MIT: [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
